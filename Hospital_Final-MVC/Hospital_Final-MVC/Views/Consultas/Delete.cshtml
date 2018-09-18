@@ -1,0 +1,56 @@
+﻿@model BaseModels.Consulta
+
+@{
+    ViewBag.Title = "Deletar Consultas";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<h3>Tem certeza que deseja deletar isso?</h3>
+<div>
+    <h4>Consulta</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model._Medico.Nome)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model._Medico.Nome)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model._Paciente.Nome)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model._Paciente.Nome)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model._TipoConsulta.Nome)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model._TipoConsulta.Nome)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DataConsulta)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DataConsulta)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Voltar a Lista", "Index")
+        </div>
+    }
+</div>

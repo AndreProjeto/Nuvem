@@ -1,0 +1,51 @@
+﻿@model IEnumerable<BaseModels.Medico>
+
+@{
+    ViewBag.Title = "Medico";
+}
+
+<h2>@ViewBag.Title</h2>
+@if (TempData["Mensagem"] != null)
+{
+    <div class="alert alert-success alert-dismissable">
+        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+        <strong></strong>@TempData["Mensagem"]
+    </div>
+}
+<p>
+    @Html.ActionLink("Criar Novo", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Nome)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CRM)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DataNasc)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nome)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CRM)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DataNasc)
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "Edit", new { id=item.MedicoID }) |
+            @Html.ActionLink("Detalhes", "Details", new { id=item.MedicoID }) |
+            @Html.ActionLink("Deletar", "Delete", new { id=item.MedicoID })
+        </td>
+    </tr>
+}
+
+</table>
