@@ -20,9 +20,10 @@ namespace Hospital_Final_MVC.Controllers
         {
 
             if (User.IsInRole("admin"))
-                           {
+            {
 
-                           }
+            }
+           
             return View(db.Medicos.ToList());
         }
 
@@ -110,12 +111,12 @@ namespace Hospital_Final_MVC.Controllers
                 {
                     db.Entry(medico).State = EntityState.Modified;
                     db.SaveChanges();
-                    TempData["Mensagem"] = "Medico Editado com Sucesso!";
+                    TempData["Mensagem"] = "Médico Editado com Sucesso!";
                     return RedirectToAction("Index");
                 }
                 catch
                 {
-                    TempData["Mensagem"] = "Erro ao Editar Medico!";
+                    TempData["Mensagem"] = "Erro ao Editar Médico!";
                     return View(medico);
                 }
                 

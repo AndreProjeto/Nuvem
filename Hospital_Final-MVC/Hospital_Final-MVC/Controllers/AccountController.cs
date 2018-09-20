@@ -141,8 +141,7 @@ namespace Hospital_Final_MVC.Controllers
         [AllowAnonymous]
         public ActionResult Register()
         {
-            ViewBag.Email = new SelectList(context.Roles.Where(u => !u.Name.Contains("Admin"))
-                                             .ToList(), "Name", "Name");
+            ViewBag.Email = new SelectList(context.Roles.Where(u => !u.Name.Contains("Admin")).ToList(), "Name", "Name");
             return View();
         }
 
@@ -168,14 +167,13 @@ namespace Hospital_Final_MVC.Controllers
                     //Assign Role to user Here      
                     await this.UserManager.AddToRoleAsync(user.Id, model.UserRoles);
                     //Ends Here    
-                    return RedirectToAction("Index", "Users");
+                    return RedirectToAction("Index", "Account/Login");
                 }
-                ViewBag.Email = new SelectList(context.Roles.Where(u => !u.Name.Contains("Admin"))
-                                          .ToList(), "Name", "Name");
+                ViewBag.Email = new SelectList(context.Roles.Where(u => !u.Name.Contains("Admin")).ToList(), "Name", "Name");
                 AddErrors(result);
             }
 
-            // If we got this far, something failed, redisplay form   
+            // If we got this far, something failed, redisplay form
             return View(model);
         }
 

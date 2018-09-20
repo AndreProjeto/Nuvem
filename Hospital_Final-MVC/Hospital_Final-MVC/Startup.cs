@@ -62,7 +62,6 @@ namespace Hospital_Final_MVC
                 var role = new IdentityRole();
                 role.Name = "Employee";
                 roleManager.Create(role);
-
             }
         }
     }

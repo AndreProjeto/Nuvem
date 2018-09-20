@@ -15,7 +15,7 @@ namespace Hospital_Final_MVC.Controllers
 
         public ActionResult About()
         {
-            ViewBag.Message = "Your application description page.";
+            ViewBag.Message = "Hospital Teste Projeto Cloud!!";
 
             return View();
         }
