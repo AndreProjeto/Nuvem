@@ -18,6 +18,8 @@ namespace Hospital_Final_MVC.Models
         }
     }
 
+    // Aqui a magia acontece
+
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public ApplicationDbContext()

@@ -46,7 +46,7 @@ namespace Hospital_Final_MVC.Models
         public string Email { get; set; }
     }
 
-    public class LoginViewModel
+    public class LoginViewModel   // DEFINIR ID AQUI PRO BANCO PUXAR ESSE ID NOVO E ZERAR 
     {
         [Required]
         [Display(Name = "Email")]

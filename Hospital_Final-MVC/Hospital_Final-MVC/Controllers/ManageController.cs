@@ -63,7 +63,7 @@ namespace Hospital_Final_MVC.Controllers
                 : message == ManageMessageId.RemovePhoneSuccess ? "Your phone number was removed."
                 : "";
 
-            var userId = User.Identity.GetUserId();
+            var userId = User.Identity.GetUserId();   // essa pra puxar o ID logado e fazer a maquina no DB
             var model = new IndexViewModel
             {
                 HasPassword = HasPassword(),

@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using BaseModels;
 using Hospital_Final_MVC.Models;
+using Microsoft.AspNet.Identity;
 
 namespace Hospital_Final_MVC.Controllers
 {
@@ -58,8 +59,11 @@ namespace Hospital_Final_MVC.Controllers
             {
                 try
                 {
-                    if ((db.Pacientes.FirstOrDefault(x => x.CPF == paciente.CPF)) == null) { 
-                    db.Pacientes.Add(paciente);
+                    if ((db.Pacientes.FirstOrDefault(x => x.CPF == paciente.CPF)) == null) {
+
+                        string chaveUsuarioLogado = User.Identity.GetUserId(); // recuperar usuario que esta logado 
+
+                        db.Pacientes.Add(paciente);
                     db.SaveChanges();
                     TempData["Mensagem"] = "Paciente Cadastrado com Sucesso!";
                     return RedirectToAction("Index");

@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using BaseModels;
 using Hospital_Final_MVC.Models;
+using Microsoft.AspNet.Identity;
 
 namespace Hospital_Final_MVC.Controllers
 {
@@ -24,7 +25,7 @@ namespace Hospital_Final_MVC.Controllers
 
             }
            
-            return View(db.Medicos.ToList());
+            return View(db.Medicos.ToList()); // recuperar o usuario que esta logado e setar com where ao inves de ToList
         }
 
         // GET: Medicos/Details/5
@@ -61,6 +62,8 @@ namespace Hospital_Final_MVC.Controllers
                 {
                     if((db.Medicos.FirstOrDefault(x => x.CRM == medico.CRM))== null)
                     {
+                        string chaveUsuarioLogado = User.Identity.GetUserId();  // recuperar usuario que esta logado 
+
                         db.Medicos.Add(medico);
                         db.SaveChanges();
                         TempData["Mensagem"] = "Medico Criado com Sucesso!";
